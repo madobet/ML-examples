@@ -1,8 +1,12 @@
-CPPFLAGS=-DARMNN_TF_LITE_PARSER -I$(ARMNN_ROOT)/include -I$(ARMNN_ROOT)/src/backends -I$(ARMNN_ROOT)/src/armnnUtils -I$(ARMNN_ROOT)/tests -I$(BOOST_ROOT)/include
-CFLAGS=-Wall -O3 -std=c++14 -fPIE
+# CPPFLAGS=-DARMNN_TF_LITE_PARSER -I$(ARMNN_ROOT)/include -I$(ARMNN_ROOT)/src/backends -I$(ARMNN_ROOT)/src/armnnUtils -I$(ARMNN_ROOT)/tests -I$(BOOST_ROOT)/include
+CPPFLAGS+=-DARMNN_TF_LITE_PARSER -I$(ARMNN_ROOT)/include -I$(ARMNN_ROOT)/src/backends -I$(ARMNN_ROOT)/src/armnnUtils -I$(ARMNN_ROOT)/tests -I$(BOOST_ROOT)/include
+# CFLAGS=-Wall -O3 -std=c++14 -fPIE
+CFLAGS+=-Wall -O3 -std=c++14 -fPIE
 
-LDFLAGS=-pie -L$(ARMNN_BUILD) -L$(ARMNN_BUILD)/tests -L$(BOOST_ROOT)/lib
-LDLIBS=-larmnn -larmnnTfLiteParser -lboost_system -lboost_filesystem -lboost_program_options
+# LDFLAGS=-pie -L$(ARMNN_BUILD) -L$(ARMNN_BUILD)/tests -L$(BOOST_ROOT)/lib
+LDFLAGS+=-pie -L$(ARMNN_BUILD) -L$(ARMNN_BUILD)/tests -L$(BOOST_ROOT)/lib
+# LDLIBS=-larmnn -larmnnTfLiteParser -lboost_system -lboost_filesystem -lboost_program_options
+LDLIBS+=-larmnn -larmnnTfLiteParser -lboost_system -lboost_filesystem -lboost_program_options -lpthread
 
 all: mobilenetv1_quant_tflite
 
