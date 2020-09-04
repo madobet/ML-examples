@@ -104,3 +104,4 @@ ENV/
 mnist
 mnist_caffe
 mnist_tf
+mobilenetv1_quant_tflite
