@@ -103,3 +103,4 @@ ENV/
 # targets
 mnist
 mnist_caffe
+mnist_tf
